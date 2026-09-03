@@ -175,7 +175,6 @@
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.75rem;
-  color: var(--secondary);
 }
 
 @utility rule-soft {
