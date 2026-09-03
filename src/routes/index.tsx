@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Linkedin, Mail } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 import headshot from "@/assets/headshot.jpg";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,8 +25,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function SectionLabel({ children }: { children: string }) {
-  return <p className="eyebrow">{children}</p>;
+function SectionLabel({ children, className }: { children: string; className?: string }) {
+  return <p className={cn("eyebrow text-secondary", className)}>{children}</p>;
 }
 
 function Index() {
@@ -140,7 +142,7 @@ function Index() {
                 <dl className="mt-6 grid gap-6 sm:grid-cols-2">
                   {toolCategories.map((cat) => (
                     <div key={cat.label}>
-                      <dt className="eyebrow">{cat.label}</dt>
+                      <dt className="eyebrow text-secondary">{cat.label}</dt>
                       <dd className="mt-2 flex flex-wrap gap-2">
                         {cat.tools.map((tool) => (
                           <span
@@ -160,12 +162,13 @@ function Index() {
         </section>
 
         {/* Results */}
-        <section id="results" className="border-b border-border bg-muted">
+        <section id="results" className="border-b border-border">
           <div className="mx-auto max-w-5xl px-6 py-24">
-            <SectionLabel>Measurable Results</SectionLabel>
+            <SectionLabel className="text-primary">Measurable Results</SectionLabel>
             <h2 className="mt-4 max-w-2xl text-3xl sm:text-4xl">
               The receipts, grouped by the kind of problem.
             </h2>
+            <div className="mt-5 h-1 w-16 rounded-full bg-primary" aria-hidden />
 
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               {[
@@ -246,13 +249,14 @@ function Index() {
         </section>
 
         {/* Connect */}
-        <section id="connect" className="bg-muted">
+        <section id="connect">
           <div className="mx-auto grid max-w-5xl gap-14 px-6 py-24 md:grid-cols-[1fr_1.2fr]">
             <div>
-              <SectionLabel>Let's Connect</SectionLabel>
+              <SectionLabel className="text-secondary">Let's Connect</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl">
                 Whether you know what you're looking for, or are still figuring it out.
               </h2>
+            <div className="mt-5 h-1 w-16 rounded-full bg-secondary" aria-hidden />
               <p className="mt-6 text-base leading-relaxed text-foreground/80">
                 Tell me what's not working. If I'm not the right fit, I'll say so and point you
                 somewhere better.
