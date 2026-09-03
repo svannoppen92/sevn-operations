@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Linkedin, Mail } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 import headshot from "@/assets/headshot.jpg";
 import { Button } from "@/components/ui/button";
 import {
@@ -167,8 +169,6 @@ function Index() {
               The receipts, grouped by the kind of problem.
             </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-primary" aria-hidden />
-              The receipts, grouped by the kind of problem.
-            </h2>
 
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               {[
@@ -256,9 +256,7 @@ function Index() {
               <h2 className="mt-4 text-3xl sm:text-4xl">
                 Whether you know what you're looking for, or are still figuring it out.
               </h2>
-              <div className="mt-5 h-1 w-16 rounded-full bg-secondary" aria-hidden />
-                Whether you know what you're looking for, or are still figuring it out.
-              </h2>
+            <div className="mt-5 h-1 w-16 rounded-full bg-secondary" aria-hidden />
               <p className="mt-6 text-base leading-relaxed text-foreground/80">
                 Tell me what's not working. If I'm not the right fit, I'll say so and point you
                 somewhere better.
