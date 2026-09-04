@@ -58,7 +58,7 @@ function Index() {
         {/* Hero */}
         <section>
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
-            <SectionLabel>Operations Support</SectionLabel>
+            <SectionLabel className="text-secondary">Operations Support</SectionLabel>
             <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] sm:text-6xl">
               Your strategy is solid.
               <br />
@@ -79,7 +79,7 @@ function Index() {
                 href="#about"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                <ArrowDown className="size-4" /> 12+ years of operations
+                <ArrowDown className="size-4 text-secondary" /> 12+ years of operations
               </a>
             </div>
           </div>
@@ -110,7 +110,7 @@ function Index() {
             </div>
 
             <div>
-              <SectionLabel>About Me</SectionLabel>
+              <SectionLabel className="text-primary">About Me</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl">
                 Give me a mess and I'll turn it into a system.
               </h2>
@@ -164,11 +164,11 @@ function Index() {
         {/* Results */}
         <section id="results">
           <div className="mx-auto max-w-5xl px-6 py-24">
-            <SectionLabel className="text-primary">Measurable Results</SectionLabel>
+            <SectionLabel className="text-red">Measurable Results</SectionLabel>
             <h2 className="mt-4 max-w-2xl text-3xl sm:text-4xl">
               The receipts, grouped by the kind of problem.
             </h2>
-            <div className="mt-5 h-1 w-16 rounded-full bg-primary" aria-hidden />
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
 
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               {[
@@ -203,7 +203,7 @@ function Index() {
                       {group.items.map((item) => (
                         <li key={item} className="flex gap-4">
                           <span
-                            className="mt-2.5 size-1.5 shrink-0 rounded-full bg-secondary"
+                            className="mt-2.5 size-1.5 shrink-0 rounded-full bg-red"
                             aria-hidden
                           />
                           <span className="text-sm leading-relaxed text-foreground/85">{item}</span>
@@ -220,7 +220,7 @@ function Index() {
         {/* Reviews */}
         <section id="reviews">
           <div className="mx-auto max-w-5xl px-6 py-24">
-            <SectionLabel>Reviews</SectionLabel>
+            <SectionLabel className="text-secondary">Reviews</SectionLabel>
             <h2 className="mt-4 text-3xl sm:text-4xl">What it's like to work together.</h2>
 
             <Carousel opts={{ align: "start" }} className="mt-12">
@@ -229,7 +229,7 @@ function Index() {
                   <CarouselItem key={i} className="pl-5 sm:basis-1/2">
                     <figure className="flex h-full flex-col justify-between rounded-xl bg-card p-7 shadow-[var(--shadow-card)]">
                       <blockquote className="text-base leading-relaxed text-foreground/85">
-                        <span className="font-display text-3xl leading-none text-primary">“</span>
+                        <span className="font-display text-3xl leading-none text-red">“</span>
                         {review.quote}
                       </blockquote>
                       <figcaption className="mt-7 border-t border-border pt-5">
@@ -252,11 +252,11 @@ function Index() {
         <section id="connect">
           <div className="mx-auto grid max-w-5xl gap-14 px-6 py-24 md:grid-cols-[1fr_1.2fr]">
             <div>
-              <SectionLabel className="text-secondary">Let's Connect</SectionLabel>
+              <SectionLabel className="text-primary">Let's Connect</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl">
                 Whether you know what you're looking for, or are still figuring it out.
               </h2>
-            <div className="mt-5 h-1 w-16 rounded-full bg-secondary" aria-hidden />
+            <div className="mt-5 h-1 w-16 rounded-full bg-primary" aria-hidden />
               <p className="mt-6 text-base leading-relaxed text-foreground/80">
                 Tell me what's not working. If I'm not the right fit, I'll say so and point you
                 somewhere better.
