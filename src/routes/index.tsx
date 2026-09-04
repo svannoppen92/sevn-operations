@@ -62,7 +62,7 @@ function Index() {
             <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] sm:text-6xl">
               Your strategy is solid.
               <br />
-              <span className="text-primary">Execution is the problem.</span>
+              <span className="text-secondary">Execution is the problem.</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-foreground/80">
               I turn messy processes and vendor stacks into predictable systems — so your team can
@@ -77,7 +77,7 @@ function Index() {
               </Button>
               <a
                 href="#about"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="inline-flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-foreground"
               >
                 <ArrowDown className="size-4 text-secondary" /> 12+ years of operations
               </a>
@@ -110,7 +110,7 @@ function Index() {
             </div>
 
             <div>
-              <SectionLabel className="text-primary">About Me</SectionLabel>
+              <SectionLabel className="text-secondary">About Me</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl">
                 Give me a mess and I'll turn it into a system.
               </h2>
@@ -131,7 +131,7 @@ function Index() {
                   </>,
                 ].map((line, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="mt-2.5 h-px w-6 shrink-0 bg-primary" aria-hidden />
+                    <span className="mt-2.5 h-px w-6 shrink-0 bg-secondary" aria-hidden />
                     <p className="text-base leading-relaxed text-foreground/85">{line}</p>
                   </li>
                 ))}
