@@ -56,7 +56,7 @@ function Index() {
 
       <main id="top">
         {/* Hero */}
-        <section className="border-b border-border">
+        <section>
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
             <SectionLabel>Operations Support</SectionLabel>
             <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] sm:text-6xl">
@@ -86,7 +86,7 @@ function Index() {
         </section>
 
         {/* About */}
-        <section id="about" className="border-b border-border">
+        <section id="about">
           <div className="mx-auto grid max-w-5xl gap-14 px-6 py-24 md:grid-cols-[320px_1fr]">
             <div>
               <div className="overflow-hidden rounded-xl bg-muted shadow-[var(--shadow-card)]">
@@ -162,7 +162,7 @@ function Index() {
         </section>
 
         {/* Results */}
-        <section id="results" className="border-b border-border">
+        <section id="results">
           <div className="mx-auto max-w-5xl px-6 py-24">
             <SectionLabel className="text-primary">Measurable Results</SectionLabel>
             <h2 className="mt-4 max-w-2xl text-3xl sm:text-4xl">
@@ -218,7 +218,7 @@ function Index() {
         </section>
 
         {/* Reviews */}
-        <section id="reviews" className="border-b border-border">
+        <section id="reviews">
           <div className="mx-auto max-w-5xl px-6 py-24">
             <SectionLabel>Reviews</SectionLabel>
             <h2 className="mt-4 text-3xl sm:text-4xl">What it's like to work together.</h2>
