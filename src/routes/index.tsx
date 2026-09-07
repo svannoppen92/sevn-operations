@@ -57,7 +57,7 @@ function Index() {
       <main id="top">
         {/* Hero */}
         <section>
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
+          <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
             <SectionLabel className="text-secondary">Operations Support</SectionLabel>
             <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] sm:text-6xl">
               Your vision is solid.
@@ -87,7 +87,7 @@ function Index() {
 
         {/* About */}
         <section id="about">
-          <div className="mx-auto grid max-w-5xl gap-14 px-6 py-24 md:grid-cols-[320px_1fr]">
+          <div className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-[320px_1fr]">
             <div>
               <div className="overflow-hidden rounded-xl bg-muted shadow-[var(--shadow-card)]">
                 <img
@@ -143,7 +143,7 @@ function Index() {
 
         {/* Results */}
         <section id="results">
-          <div className="mx-auto max-w-5xl px-6 py-24">
+          <div className="mx-auto max-w-5xl px-6 py-16">
             <SectionLabel className="text-red">Measurable Results</SectionLabel>
             <h2 className="mt-4 max-w-2xl text-3xl sm:text-4xl">
               Examples of what I can do for you.
@@ -155,7 +155,7 @@ function Index() {
               type="single"
               collapsible
               defaultValue="revenue"
-              className="mt-12 overflow-hidden rounded-xl bg-card shadow-[var(--shadow-card)]"
+              className="mt-10 overflow-hidden rounded-xl bg-card shadow-[var(--shadow-card)]"
             >
               {resultGroups.map((group) => (
                 <AccordionItem
@@ -187,11 +187,11 @@ function Index() {
 
         {/* Reviews */}
         <section id="reviews">
-          <div className="mx-auto max-w-5xl px-6 py-24">
+          <div className="mx-auto max-w-5xl px-6 py-16">
             <SectionLabel className="text-secondary">Reviews</SectionLabel>
             <h2 className="mt-4 text-3xl sm:text-4xl">What it's like to work together.</h2>
 
-            <Carousel opts={{ align: "start" }} className="mt-12">
+            <Carousel opts={{ align: "start" }} className="mt-10">
               <CarouselContent className="-ml-5">
                 {reviews.map((review, i) => (
                   <CarouselItem key={i} className="pl-5 sm:basis-1/2">
@@ -218,7 +218,7 @@ function Index() {
 
         {/* Connect */}
         <section id="connect">
-          <div className="mx-auto grid max-w-5xl gap-14 px-6 py-24 md:grid-cols-[1fr_1.2fr]">
+          <div className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-[1fr_1.2fr]">
             <div>
               <SectionLabel className="text-primary">Let's Connect</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl">
