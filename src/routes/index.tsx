@@ -111,8 +111,8 @@ function Index() {
             </div>
 
             <div>
-              <SectionLabel className="text-secondary">About Me</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl">
+              <SectionLabel className="text-primary">About Me</SectionLabel>
+              <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">
                 Give me a mess and I'll turn it into a system.
               </h2>
               <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
@@ -146,8 +146,8 @@ function Index() {
         {/* Results */}
         <section id="results">
           <div className="mx-auto max-w-5xl px-6 py-16">
-            <SectionLabel className="text-red">Measurable Results</SectionLabel>
-            <h2 className="mt-4 max-w-2xl text-3xl sm:text-4xl">
+            <SectionLabel className="text-primary">Measurable Results</SectionLabel>
+            <h2 className="mt-4 max-w-2xl text-3xl text-secondary sm:text-4xl">
               Examples of what I can do for you.
             </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
@@ -190,8 +190,8 @@ function Index() {
         {/* Reviews */}
         <section id="reviews">
           <div className="mx-auto max-w-5xl px-6 py-16">
-            <SectionLabel className="text-secondary">Reviews</SectionLabel>
-            <h2 className="mt-4 text-3xl sm:text-4xl">What it's like to work together.</h2>
+            <SectionLabel className="text-primary">Reviews</SectionLabel>
+            <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">What it's like to work together.</h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
 
             <Carousel opts={{ align: "start" }} className="mt-10">
@@ -224,7 +224,7 @@ function Index() {
           <div className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-[1fr_1.2fr]">
             <div>
               <SectionLabel className="text-primary">Let's Connect</SectionLabel>
-              <h2 className="mt-4 text-3xl sm:text-4xl">
+              <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">
                 We can talk through the problems you need solved.
               </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
