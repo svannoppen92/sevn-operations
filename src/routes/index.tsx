@@ -35,7 +35,7 @@ function Index() {
       <header className="border-b border-border">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <a href="#top" className="font-display text-base font-semibold tracking-tight">
-            SEVN <span className="text-primary">Consulting Group</span>
+            SEVN <span className="text-primary">operations</span>
           </a>
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
             <a href="#about" className="transition-colors hover:text-foreground">
@@ -60,7 +60,7 @@ function Index() {
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
             <SectionLabel className="text-secondary">Operations Support</SectionLabel>
             <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] sm:text-6xl">
-              Your strategy is solid.
+              Your vision is solid.
               <br />
               <span className="text-secondary">Execution is the problem.</span>
             </h1>
@@ -71,7 +71,7 @@ function Index() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Button asChild size="lg" className="rounded-md">
                 <a href="#connect">
-                  Book a consultation
+                  Let me help you
                   <ArrowRight className="size-4" />
                 </a>
               </Button>
@@ -126,7 +126,7 @@ function Index() {
                     companies, early-stage startups, and nonprofits.
                   </>,
                   <>
-                    Finance, HR, whatever's on fire this week — I find the shape of the problem and
+                    Finance, HR, whatever's on fire this week — I find the problems and
                     build the process that keeps it solved.
                   </>,
                 ].map((line, i) => (
@@ -166,7 +166,7 @@ function Index() {
           <div className="mx-auto max-w-5xl px-6 py-24">
             <SectionLabel className="text-red">Measurable Results</SectionLabel>
             <h2 className="mt-4 max-w-2xl text-3xl sm:text-4xl">
-              The receipts, grouped by the kind of problem.
+              Examples of what I can do for you.
             </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
 
@@ -254,12 +254,11 @@ function Index() {
             <div>
               <SectionLabel className="text-primary">Let's Connect</SectionLabel>
               <h2 className="mt-4 text-3xl sm:text-4xl">
-                Whether you know what you're looking for, or are still figuring it out.
+                We can talk through the problems you need solved.
               </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-primary" aria-hidden />
               <p className="mt-6 text-base leading-relaxed text-foreground/80">
-                Tell me what's not working. If I'm not the right fit, I'll say so and point you
-                somewhere better.
+                I'll be in touch within 24 hours. You can also reach out directly via email.
               </p>
               <a
                 href="mailto:you@yourdomain.com"
@@ -277,7 +276,7 @@ function Index() {
 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-8 text-sm text-muted-foreground">
-          <p>SEVN Consulting Group</p>
+          <p>SEVN Operations</p>
           <p>Operations support for teams that need the systems to hold.</p>
         </div>
       </footer>

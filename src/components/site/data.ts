@@ -11,7 +11,7 @@ export const resultGroups: ResultGroup[] = [
     items: [
       "Drove ~$100K in monthly savings through workforce and expense optimization.",
       "Cut contractor spend 90% — from $17K/month to $1.7K/month.",
-      "Automated the monthly QuickBooks P&L review using Claude — data is pulled automatically at month's close, summarized into a standing template, and emailed to leadership with trends flagged — cutting review time from a full day to 5 minutes.",
+      "Automated monthly QuickBooks P&L reviews using AI — data is pulled automatically at month's close, summarized into a standing template, and emailed to leadership with trends flagged — cutting review time from a full day to 5 minutes.",
       "Built yearly financial forecasting and planning processes from scratch, giving leadership teams real-time budget visibility for the first time.",
       "Owned a $2M P&L end-to-end — budgeting, forecasting, and capital allocation, with a specific focus on people and subscription costs.",
       "Stood up and operationalized a partnerships and sponsorships program, converting an informal, consultant-run process into a systematized one — generating $273K in 2024 and laying the foundation for a projected $357K in 2025.",
