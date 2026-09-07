@@ -150,18 +150,6 @@ function Index() {
             </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
 
-            <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              {[
-                { value: "~$100K", label: "monthly savings delivered", color: "text-primary" },
-                { value: "85%+", label: "OKR completion, four quarters running", color: "text-secondary" },
-                { value: "$273K", label: "sponsorship revenue systematized", color: "text-red" },
-              ].map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-card p-6 shadow-[var(--shadow-card)]">
-                  <p className={cn("font-display text-3xl font-semibold", stat.color)}>{stat.value}</p>
-                  <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
-            </div>
 
             <Accordion
               type="single"
