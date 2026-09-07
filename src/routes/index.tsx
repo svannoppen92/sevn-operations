@@ -64,6 +64,7 @@ function Index() {
               <br />
               Execution is the problem.
             </h1>
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
             <p className="mt-7 max-w-xl text-base leading-relaxed text-foreground/80">
               I turn messy processes and vendor stacks into predictable systems — so your team can
               execute without you having to hold it all together.
@@ -114,6 +115,7 @@ function Index() {
               <h2 className="mt-4 text-3xl sm:text-4xl">
                 Give me a mess and I'll turn it into a system.
               </h2>
+              <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
               <ul className="mt-8 space-y-6">
                 {[
                   <>
@@ -190,6 +192,7 @@ function Index() {
           <div className="mx-auto max-w-5xl px-6 py-16">
             <SectionLabel className="text-secondary">Reviews</SectionLabel>
             <h2 className="mt-4 text-3xl sm:text-4xl">What it's like to work together.</h2>
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
 
             <Carousel opts={{ align: "start" }} className="mt-10">
               <CarouselContent className="-ml-5">
@@ -224,7 +227,7 @@ function Index() {
               <h2 className="mt-4 text-3xl sm:text-4xl">
                 We can talk through the problems you need solved.
               </h2>
-            <div className="mt-5 h-1 w-16 rounded-full bg-primary" aria-hidden />
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
               <p className="mt-6 text-base leading-relaxed text-foreground/80">
                 I'll be in touch within 24 hours. You can also reach out directly via email.
               </p>
