@@ -3,7 +3,7 @@ import { ArrowDown, ArrowRight, Linkedin, Mail } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import headshot from "@/assets/headshot.jpg";
+import headshotAsset from "@/assets/headshot.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
