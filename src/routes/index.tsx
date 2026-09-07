@@ -91,7 +91,7 @@ function Index() {
             <div>
               <div className="overflow-hidden rounded-xl bg-muted shadow-[var(--shadow-card)]">
                 <img
-                  src={headshot}
+                  src={headshotAsset.url}
                   alt="Portrait of the founder of SEVN Consulting Group"
                   width={1024}
                   height={1280}
