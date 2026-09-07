@@ -19,7 +19,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { InquiryForm } from "@/components/site/InquiryForm";
-import { resultGroups, reviews, toolCategories } from "@/components/site/data";
+import { resultGroups, reviews } from "@/components/site/data";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -137,26 +137,6 @@ function Index() {
                 ))}
               </ul>
 
-              <div className="mt-12 rounded-xl bg-card p-7 shadow-[var(--shadow-card)]">
-                <h3 className="text-lg">Tools & Systems Fluency</h3>
-                <dl className="mt-6 grid gap-6 sm:grid-cols-2">
-                  {toolCategories.map((cat) => (
-                    <div key={cat.label}>
-                      <dt className="eyebrow text-secondary">{cat.label}</dt>
-                      <dd className="mt-2 flex flex-wrap gap-2">
-                        {cat.tools.map((tool) => (
-                          <span
-                            key={tool}
-                            className="rounded-full border border-border px-3 py-1 text-xs text-foreground/80"
-                          >
-                            {tool}
-                          </span>
-                        ))}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
             </div>
           </div>
         </section>
