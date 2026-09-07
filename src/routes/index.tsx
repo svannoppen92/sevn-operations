@@ -58,7 +58,7 @@ function Index() {
         {/* Hero */}
         <section>
           <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-            <SectionLabel className="text-secondary">Operations Support</SectionLabel>
+            <SectionLabel className="text-primary">Operations Support</SectionLabel>
             <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] text-secondary sm:text-6xl">
               Your vision is solid.
               <br />
