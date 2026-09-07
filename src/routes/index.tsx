@@ -59,10 +59,10 @@ function Index() {
         <section>
           <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
             <SectionLabel className="text-secondary">Operations Support</SectionLabel>
-            <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] sm:text-6xl">
+            <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] text-secondary sm:text-6xl">
               Your vision is solid.
               <br />
-              <span className="text-secondary">Execution is the problem.</span>
+              Execution is the problem.
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-foreground/80">
               I turn messy processes and vendor stacks into predictable systems — so your team can
