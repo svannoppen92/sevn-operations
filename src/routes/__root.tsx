@@ -79,14 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SEVN Consulting Group — Operations Support" },
+      { title: "sevn operations" },
       {
         name: "description",
         content:
           "Operations consulting that turns messy processes and vendor stacks into predictable systems your team can run without you.",
       },
       { name: "author", content: "SEVN Consulting Group" },
-      { property: "og:title", content: "SEVN Consulting Group — Operations Support" },
+      { property: "og:title", content: "sevn operations" },
       {
         property: "og:description",
         content:
