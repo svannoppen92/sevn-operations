@@ -1,144 +1,361 @@
-export type ResultGroup = {
-  id: string;
-  title: string;
-  items: string[];
-};
+import { useState, type MouseEvent } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { ArrowDown, ArrowRight, Linkedin, Mail, Menu } from "lucide-react";
  
-export const resultGroups: ResultGroup[] = [
-  {
-    id: "revenue",
-    title: "Revenue & Growth",
-    items: [
-      "Drove ~$100K in monthly savings through workforce and expense optimization.",
-      "Cut contractor spend 90% — from $17K/month to $1.7K/month.",
-      "Automated monthly QuickBooks P&L reviews using AI — data is pulled automatically at month's close, summarized into a standing template, and emailed to leadership with trends flagged — cutting review time from a full day to 5 minutes.",
-      "Built yearly financial forecasting and planning processes from scratch, giving leadership teams real-time budget visibility for the first time.",
-      "Owned a $2M P&L end-to-end — budgeting, forecasting, and capital allocation, with a specific focus on people and subscription costs.",
-      "Stood up and operationalized a partnerships and sponsorships program, converting an informal, consultant-run process into a systematized one — generating $273K in 2024 and laying the foundation for a projected $357K in 2025.",
-      "Designed and launched a podcast sponsorship program from scratch, signing 8 sponsors and generating $80K in revenue.",
-    ],
-  },
-  {
-    id: "infrastructure",
-    title: "Strategic Infrastructure & Execution",
-    items: [
-      "Architected the company's yearly roadmap planning and communication process, aligning leadership vision with team execution.",
-      "Redesigned the company-wide OKR program, driving completion rates from the mid-40s to 85%+, sustained across four consecutive quarters.",
-      "Installed a weekly executive reporting cadence and KPI tracking system, improving leadership's ability to catch problems early — like social engagement dips — before they became bigger issues.",
-      "Planned, funded, and executed quarterly All Hands and department events for 1,000+ in-person and remote employees, improving company-wide alignment and morale.",
-    ],
-  },
-  {
-    id: "risk",
-    title: "Risk & Compliance",
-    items: [
-      "Brought two early-stage organizations — a startup and a nonprofit — into full compliance with employment law, vendor contracts, and contractor classifications, each for the first time.",
-      "Implemented a contract management system centralizing employee contracts, 50+ vendor contracts, and 100+ contractor agreements.",
-      "Designed and simplified a complex quarterly reimbursement process with a non-profit partner, retroactively accounting for up to $1MM in expenses and rolling out a new expense process for the team going forward.",
-      "Established compliant contract execution and storage protocols, partnering with legal counsel on drafting, negotiation, and renewals.",
-      "Led the company's conversion from LLC to Inc. to enable equity compensation.",
-      "Migrated the company's HRIS from Gusto to JustWorks to enable a PEO model.",
-      "Directed the implementation of Remote for an international workforce of 39 employees and contractors across 9 countries.",
-    ],
-  },
-  {
-    id: "org",
-    title: "Organizational Design & Talent Systems",
-    items: [
-      "Scaled the organization from 2 to 13 full-time employees, building end-to-end recruiting infrastructure that delivered a 92% offer acceptance rate (11 of 12 offers accepted).",
-      "Created and institutionalized onboarding, performance review, and leveling frameworks — achieving 100% retention across 13 hires over 2 years and 90%+ employee engagement scores.",
-      "Transitioned the company to a PEO and selected its 401(k) vendor, formalizing its benefits architecture, saving $1,500/month for the employer and $200+/employee/month, and removing compliance risk.",
-    ],
-  },
-  {
-    id: "programs",
-    title: "Cross-Functional Program & Project Management",
-    items: [
-      "Developed and launched two high-visibility external platforms — a redesign of tesla.com/supercharger and the Host a Supercharger program — expanding its public Supercharger infrastructure and partner ecosystem.",
-      "Spearheaded the end-to-end launch of four products, generating 8,308 new subscriptions and ~$100K in incremental annual revenue.",
-      "Ran weekly priority-setting sessions, owned cross-stakeholder communications, and drove ambiguous, high-priority initiatives to completion, like supporting engineers during high-stakes manufacturing launches.",
-    ],
-  },
-  {
-    id: "special",
-    title: "Special Projects",
-    items: [
-      "Managed end-to-end delivery of a weekly newsletter to 250,000 subscribers — staging, proofing, contractor management, and automated send scheduling — maintaining 99–100% delivery accuracy quarter over quarter.",
-      "Grew organic social presence to 500,000 followers, up 100,000 year-over-year.",
-    ],
-  },
-];
+import { cn } from "@/lib/utils";
  
-export type ProcessStage = {
-  number: string;
-  title: string;
-  description: string;
-};
+import headshotImage from "@/assets/headshot.jpg";
+import sevnLogo from "@/assets/sevn-logo.png";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { InquiryForm } from "@/components/site/InquiryForm";
+import { processStages, resultGroups, reviews } from "@/components/site/data";
  
-export const processStages: ProcessStage[] = [
-  {
-    number: "01",
-    title: "Discovery",
-    description:
-      "Discussions and research to understand the business, the goals, and what's really in the way.",
-  },
-  {
-    number: "02",
-    title: "Analysis",
-    description:
-      "The findings from discovery are reviewed to scope out the opportunity and sharpen the objectives.",
-  },
-  {
-    number: "03",
-    title: "Strategy",
-    description:
-      "Options are weighed and the best path forward is recommended: a prioritized plan with clear objectives, owners, and a timeline.",
-  },
-  {
-    number: "04",
-    title: "Implementation",
-    description:
-      "The plan goes live alongside your team, with regular check-ins to adjust as real conditions unfold.",
-  },
-  {
-    number: "05",
-    title: "Review",
-    description:
-      "Results are measured against the original goal, and you're left with what you need to sustain them.",
-  },
-];
+const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#process", label: "Process" },
+  { href: "#results", label: "Results" },
+  { href: "#reviews", label: "Reviews" },
+  { href: "#connect", label: "Connect" },
+] as const;
  
-export const toolCategories = [
-  { label: "Project management", tools: ["Notion", "Monday"] },
-  { label: "PEO / EOR", tools: ["Gusto", "JustWorks", "Remote", "Rippling", "Deel"] },
-  { label: "Finance", tools: ["QuickBooks"] },
-  { label: "AI tools", tools: ["Claude", "ChatGPT", "Gemini"] },
-];
+export const Route = createFileRoute("/")({
+  component: Index,
+});
  
-export const reviews = [
-  {
-    quote:
-      "She walked into a company where nothing was written down and left us with systems the whole team actually uses. Our leadership meetings finally have a spine.",
-    name: "Placeholder Review",
-    role: "CEO, Series A startup",
-  },
-  {
-    quote:
-      "The compliance cleanup alone paid for itself twice over. Calm, fast, and completely unbothered by the mess.",
-    name: "Placeholder Review",
-    role: "Executive Director, Nonprofit",
-  },
-  {
-    quote:
-      "Our OKR completion rate went from a joke to something we plan around. That change stuck long after the engagement ended.",
-    name: "Placeholder Review",
-    role: "VP Operations",
-  },
-  {
-    quote:
-      "Give her the messiest corner of the business and it comes back as a documented, repeatable process.",
-    name: "Placeholder Review",
-    role: "Chief of Staff",
-  },
-];
+function SectionLabel({ children, className }: { children: string; className?: string }) {
+  return <p className={cn("eyebrow text-secondary", className)}>{children}</p>;
+}
+ 
+function Index() {
+  const [navOpen, setNavOpen] = useState(false);
+ 
+  // The mobile nav lives in a Sheet, which locks page scroll while it's open
+  // and while it plays its close animation. If we let the anchor's native
+  // hash-jump fire in that instant, the browser tries to scroll while
+  // scrolling is locked and the jump is silently dropped. So: intercept the
+  // click, close the sheet, then scroll to the target ourselves once the
+  // close animation (300ms) has finished.
+  function handleMobileNavClick(event: MouseEvent<HTMLAnchorElement>, href: string) {
+    event.preventDefault();
+    setNavOpen(false);
+    window.setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
+  }
+ 
+  return (
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+          <a href="#top" className="shrink-0">
+            <img src={sevnLogo} alt="SEVN Operations" className="h-7 w-auto sm:h-8" />
+          </a>
+          <nav className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+ 
+          <Sheet open={navOpen} onOpenChange={setNavOpen}>
+            <SheetTrigger asChild>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                aria-label="Open menu"
+                className="sm:hidden"
+              >
+                <Menu className="size-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-3/4 sm:hidden">
+              <SheetTitle className="sr-only">SEVN Operations</SheetTitle>
+              <img src={sevnLogo} alt="SEVN Operations" className="h-6 w-auto" />
+              <nav className="mt-8 flex flex-col gap-1 text-base">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(event) => handleMobileNavClick(event, link.href)}
+                    className="rounded-md px-2 py-3 text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </header>
+ 
+      <main id="top">
+        {/* Hero */}
+        <section>
+          <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+            <SectionLabel className="text-primary">Operations Support</SectionLabel>
+            <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] text-secondary sm:text-6xl">
+              Your vision is solid.
+              <br />
+              Execution is the problem.
+            </h1>
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-foreground/80">
+              I turn messy processes and vendor stacks into predictable systems — so your team can
+              execute without you having to hold it all together.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Button asChild size="lg" className="rounded-md">
+                <a href="#connect">
+                  Let me help you
+                  <ArrowRight className="size-4" />
+                </a>
+              </Button>
+              <a
+                href="#about"
+                className="inline-flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-foreground"
+              >
+                <ArrowDown className="size-4 text-secondary" /> 12+ years of operations
+              </a>
+            </div>
+          </div>
+        </section>
+ 
+        {/* About */}
+        <section id="about">
+          <div className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-[320px_1fr]">
+            <div>
+              <div className="overflow-hidden rounded-xl bg-muted shadow-[var(--shadow-card)]">
+                <img
+                  src={headshotImage}
+                  alt="Portrait of the founder of SEVN Consulting Group"
+                  width={389}
+                  height={389}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <a
+                href="https://www.linkedin.com/in/sophievtaylor"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-secondary transition-opacity hover:opacity-70"
+              >
+                <Linkedin className="size-4" /> Connect on LinkedIn
+              </a>
+            </div>
+ 
+            <div>
+              <SectionLabel className="text-primary">About Me</SectionLabel>
+              <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">
+                Give me a mess and I'll turn it into a system.
+              </h2>
+              <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
+              <ul className="mt-8 space-y-6">
+                {[
+                  <>
+                    Operations leader with 12+ years of experience — COO, Chief of Staff, Head of
+                    Ops. It's <strong className="font-semibold">the work that matters to me</strong>
+                    , not the title.
+                  </>,
+                  <>
+                    I've built the systems that hold a company together — across Fortune 500
+                    companies, early-stage startups, and nonprofits.
+                  </>,
+                  <>
+                    Finance, HR, whatever's on fire this week — I find the problems and
+                    build the process that keeps it solved.
+                  </>,
+                ].map((line, i) => (
+                  <li key={i} className="flex gap-4">
+                    <span className="mt-2.5 h-px w-6 shrink-0 bg-secondary" aria-hidden />
+                    <p className="text-base leading-relaxed text-foreground/85">{line}</p>
+                  </li>
+                ))}
+              </ul>
+ 
+            </div>
+          </div>
+        </section>
+ 
+        {/* Process */}
+        <section id="process">
+          <div className="mx-auto max-w-5xl px-6 py-16">
+            <SectionLabel className="text-primary">How I Work</SectionLabel>
+            <h2 className="mt-4 max-w-2xl text-3xl text-secondary sm:text-4xl">
+              What a project looks like.
+            </h2>
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
+              Every engagement moves through the same five stages — from the first conversation to
+              a system your team can run without me.
+            </p>
+ 
+            <div className="mt-10 -mx-6 overflow-x-auto px-6 pb-2">
+              <div className="relative flex w-max gap-8 sm:w-full sm:gap-6">
+                <div
+                  className="pointer-events-none absolute right-0 left-0 top-[19px] h-px bg-border"
+                  aria-hidden
+                />
+                {processStages.map((stage, i) => (
+                  <div
+                    key={stage.number}
+                    className="relative flex w-[200px] shrink-0 flex-col sm:w-auto sm:flex-1"
+                  >
+                    <div
+                      className={cn(
+                        "relative z-10 mb-5 flex size-[38px] items-center justify-center rounded-md border font-display text-sm font-semibold",
+                        i === 0
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-border bg-card text-muted-foreground",
+                      )}
+                    >
+                      {stage.number}
+                    </div>
+                    <p className="mb-1.5 text-xs font-medium uppercase tracking-wide text-red">
+                      Stage {stage.number}
+                    </p>
+                    <h3 className="text-lg text-secondary">{stage.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+                      {stage.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="mt-2 text-xs text-muted-foreground sm:hidden">Swipe to see all five →</p>
+          </div>
+        </section>
+ 
+        {/* Results */}
+        <section id="results">
+          <div className="mx-auto max-w-5xl px-6 py-16">
+            <SectionLabel className="text-primary">Measurable Results</SectionLabel>
+            <h2 className="mt-4 max-w-2xl text-3xl text-secondary sm:text-4xl">
+              Examples of what I can do for you.
+            </h2>
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
+ 
+ 
+            <Accordion
+              type="single"
+              collapsible
+              defaultValue="revenue"
+              className="mt-10 overflow-hidden rounded-xl bg-card shadow-[var(--shadow-card)]"
+            >
+              {resultGroups.map((group) => (
+                <AccordionItem
+                  key={group.id}
+                  value={group.id}
+                  className="border-b border-border px-6 last:border-b-0"
+                >
+                  <AccordionTrigger className="py-5 text-left font-display text-lg font-semibold hover:no-underline">
+                    {group.title}
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6">
+                    <ul className="space-y-4 pr-2">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex gap-4">
+                          <span
+                            className="mt-2.5 size-1.5 shrink-0 rounded-full bg-red"
+                            aria-hidden
+                          />
+                          <span className="text-sm leading-relaxed text-foreground/85">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+ 
+        {/* Reviews */}
+        <section id="reviews">
+          <div className="mx-auto max-w-5xl px-6 py-16">
+            <SectionLabel className="text-primary">Reviews</SectionLabel>
+            <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">What it's like to work together.</h2>
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
+ 
+            <Carousel opts={{ align: "start" }} className="mt-10">
+              <CarouselContent className="-ml-5">
+                {reviews.map((review, i) => (
+                  <CarouselItem key={i} className="pl-5 sm:basis-1/2">
+                    <figure className="flex h-full flex-col justify-between rounded-xl bg-card p-7 shadow-[var(--shadow-card)]">
+                      <blockquote className="text-base leading-relaxed text-foreground/85">
+                        <span className="font-display text-3xl leading-none text-red">“</span>
+                        {review.quote}
+                      </blockquote>
+                      <figcaption className="mt-7 border-t border-border pt-5">
+                        <p className="font-display text-sm font-semibold">{review.name}</p>
+                        <p className="text-sm text-muted-foreground">{review.role}</p>
+                      </figcaption>
+                    </figure>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="mt-8 flex gap-3">
+                <CarouselPrevious className="static h-11 w-11 translate-y-0 border-border bg-card" />
+                <CarouselNext className="static h-11 w-11 translate-y-0 border-border bg-card" />
+              </div>
+            </Carousel>
+          </div>
+        </section>
+ 
+        {/* Connect */}
+        <section id="connect">
+          <div className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-[1fr_1.2fr]">
+            <div>
+              <SectionLabel className="text-primary">Let's Connect</SectionLabel>
+              <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">
+                & talk through the problems you need solved
+              </h2>
+            <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
+              <p className="mt-6 text-base leading-relaxed text-foreground/80">
+                I'll be in touch within 24 hours. Pricing options are based on the project scope and time requirements.
+              </p>
+              <a
+                href="mailto:you@yourdomain.com"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-secondary transition-opacity hover:opacity-70"
+              >
+                <Mail className="size-4" /> you@yourdomain.com
+              </a>
+            </div>
+            <div className="rounded-xl bg-card p-7 shadow-[var(--shadow-card)] sm:p-9">
+              <InquiryForm />
+            </div>
+          </div>
+        </section>
+      </main>
+ 
+      <footer className="border-t border-border">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-8 text-sm text-muted-foreground">
+          <img src={sevnLogo} alt="SEVN Operations" className="h-5 w-auto" />
+          <p>Operations support for teams that need the systems to hold.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
+ 
  
