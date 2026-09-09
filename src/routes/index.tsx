@@ -278,11 +278,11 @@ function Index() {
             <div>
               <SectionLabel className="text-primary">Let's Connect</SectionLabel>
               <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">
-                We can talk through the problems you need solved.
+                & talk through the problems you need solved
               </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
               <p className="mt-6 text-base leading-relaxed text-foreground/80">
-                I'll be in touch within 24 hours. You can also reach out directly via email.
+                I'll be in touch within 24 hours. Pricing options are based on the project scope and time requirements.
               </p>
               <a
                 href="mailto:you@yourdomain.com"
@@ -307,4 +307,3 @@ function Index() {
     </div>
   );
 }
- 
