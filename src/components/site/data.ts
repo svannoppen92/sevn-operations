@@ -3,7 +3,7 @@ export type ResultGroup = {
   title: string;
   items: string[];
 };
-
+ 
 export const resultGroups: ResultGroup[] = [
   {
     id: "revenue",
@@ -68,14 +68,53 @@ export const resultGroups: ResultGroup[] = [
     ],
   },
 ];
-
+ 
+export type ProcessStage = {
+  number: string;
+  title: string;
+  description: string;
+};
+ 
+export const processStages: ProcessStage[] = [
+  {
+    number: "01",
+    title: "Discovery",
+    description:
+      "Discussions and research to understand the business, the goals, and what's really in the way.",
+  },
+  {
+    number: "02",
+    title: "Analysis",
+    description:
+      "The findings from discovery are reviewed to scope out the opportunity and sharpen the objectives.",
+  },
+  {
+    number: "03",
+    title: "Strategy",
+    description:
+      "Options are weighed and the best path forward is recommended: a prioritized plan with clear objectives, owners, and a timeline.",
+  },
+  {
+    number: "04",
+    title: "Implementation",
+    description:
+      "The plan goes live alongside your team, with regular check-ins to adjust as real conditions unfold.",
+  },
+  {
+    number: "05",
+    title: "Review",
+    description:
+      "Results are measured against the original goal, and you're left with what you need to sustain them.",
+  },
+];
+ 
 export const toolCategories = [
   { label: "Project management", tools: ["Notion", "Monday"] },
   { label: "PEO / EOR", tools: ["Gusto", "JustWorks", "Remote", "Rippling", "Deel"] },
   { label: "Finance", tools: ["QuickBooks"] },
   { label: "AI tools", tools: ["Claude", "ChatGPT", "Gemini"] },
 ];
-
+ 
 export const reviews = [
   {
     quote:
