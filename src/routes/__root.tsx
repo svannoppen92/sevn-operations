@@ -93,7 +93,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Operations consulting that turns messy processes and vendor stacks into predictable systems.",
       },
       { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content: "https://sevn-operations.sophietaylorvn.workers.dev/og-image.png",
+      },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:image",
+        content: "https://sevn-operations.sophietaylorvn.workers.dev/og-image.png",
+      },
     ],
     links: [
       {
@@ -141,4 +151,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-
