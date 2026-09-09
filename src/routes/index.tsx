@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, ArrowRight, Linkedin, Mail, Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 import headshotAsset from "@/assets/headshot.jpg.asset.json";
+import sevnLogo from "@/assets/sevn-logo.png";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -18,6 +19,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { InquiryForm } from "@/components/site/InquiryForm";
 import { resultGroups, reviews } from "@/components/site/data";
 
