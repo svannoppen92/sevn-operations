@@ -46,7 +46,7 @@ function Index() {
             <img
               src={sevnLogo}
               alt="SEVN Operations"
-              className="h-9 w-auto sm:h-11"
+              className="h-7 w-auto sm:h-8"
             />
           </a>
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
@@ -77,7 +77,7 @@ function Index() {
                 <img
                   src={sevnLogo}
                   alt="SEVN Operations"
-                  className="h-8 w-auto"
+                  className="h-6 w-auto"
                 />
                 <a href="#about" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
                   About
@@ -293,7 +293,7 @@ function Index() {
           <img
             src={sevnLogo}
             alt="SEVN Operations"
-            className="h-7 w-auto"
+            className="h-5 w-auto"
           />
           <p>Operations support for teams that need the systems to hold.</p>
         </div>
