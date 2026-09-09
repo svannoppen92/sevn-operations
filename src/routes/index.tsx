@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, ArrowRight, Linkedin, Mail, Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 import headshotAsset from "@/assets/headshot.jpg.asset.json";
+import sevnLogo from "@/assets/sevn-logo.png";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -18,6 +19,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { InquiryForm } from "@/components/site/InquiryForm";
 import { resultGroups, reviews } from "@/components/site/data";
 
@@ -34,8 +42,12 @@ function Index() {
     <div className="min-h-screen bg-background">
       <header className="border-b border-border">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <a href="#top" className="font-display text-base font-semibold tracking-tight">
-            SEVN <span className="text-primary">operations</span>
+          <a href="#top">
+            <img
+              src={sevnLogo}
+              alt="SEVN Operations"
+              className="h-7 w-auto sm:h-8"
+            />
           </a>
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
             <a href="#about" className="transition-colors hover:text-foreground">
@@ -51,6 +63,37 @@ function Index() {
               Connect
             </a>
           </nav>
+          <Sheet>
+            <SheetTrigger asChild className="sm:hidden">
+              <Button variant="ghost" size="icon" aria-label="Open navigation menu">
+                <Menu className="size-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-3/4 sm:max-w-sm">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Navigation</SheetTitle>
+              </SheetHeader>
+              <div className="mt-8 flex flex-col items-start gap-6">
+                <img
+                  src={sevnLogo}
+                  alt="SEVN Operations"
+                  className="h-6 w-auto"
+                />
+                <a href="#about" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
+                  About
+                </a>
+                <a href="#results" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
+                  Results
+                </a>
+                <a href="#reviews" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
+                  Reviews
+                </a>
+                <a href="#connect" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
+                  Connect
+                </a>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </header>
 
@@ -247,7 +290,11 @@ function Index() {
 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-8 text-sm text-muted-foreground">
-          <p>SEVN Operations</p>
+          <img
+            src={sevnLogo}
+            alt="SEVN Operations"
+            className="h-5 w-auto"
+          />
           <p>Operations support for teams that need the systems to hold.</p>
         </div>
       </footer>
