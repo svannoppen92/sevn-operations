@@ -154,7 +154,7 @@ function Index() {
                 />
               </div>
               <a
-                href="https://www.linkedin.com"
+                href="linkedin.com/in/sophievtaylor"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-secondary transition-opacity hover:opacity-70"
