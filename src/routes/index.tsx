@@ -4,7 +4,7 @@ import { ArrowDown, ArrowRight, Linkedin, Mail, Menu } from "lucide-react";
  
 import { cn } from "@/lib/utils";
  
-import headshotAsset from "@/assets/headshot.jpg.asset.json";
+import headshotImage from "@/assets/headshot.jpg";
 import sevnLogo from "@/assets/sevn-logo.png";
 import { Button } from "@/components/ui/button";
 import {
@@ -145,10 +145,10 @@ function Index() {
             <div>
               <div className="overflow-hidden rounded-xl bg-muted shadow-[var(--shadow-card)]">
                 <img
-                  src={headshotAsset.url}
+                  src={headshotImage}
                   alt="Portrait of the founder of SEVN Consulting Group"
-                  width={1024}
-                  height={1280}
+                  width={389}
+                  height={389}
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
@@ -307,3 +307,5 @@ function Index() {
     </div>
   );
 }
+ 
+ 
