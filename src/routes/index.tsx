@@ -1,8 +1,9 @@
+import { useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Linkedin, Mail, Menu } from "lucide-react";
-
+ 
 import { cn } from "@/lib/utils";
-
+ 
 import headshotAsset from "@/assets/headshot.jpg.asset.json";
 import sevnLogo from "@/assets/sevn-logo.png";
 import { Button } from "@/components/ui/button";
@@ -19,84 +20,93 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { InquiryForm } from "@/components/site/InquiryForm";
 import { resultGroups, reviews } from "@/components/site/data";
-
+ 
+const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#results", label: "Results" },
+  { href: "#reviews", label: "Reviews" },
+  { href: "#connect", label: "Connect" },
+] as const;
+ 
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
+ 
 function SectionLabel({ children, className }: { children: string; className?: string }) {
   return <p className={cn("eyebrow text-secondary", className)}>{children}</p>;
 }
-
+ 
 function Index() {
+  const [navOpen, setNavOpen] = useState(false);
+ 
+  // The mobile nav lives in a Sheet, which locks page scroll while it's open
+  // and while it plays its close animation. If we let the anchor's native
+  // hash-jump fire in that instant, the browser tries to scroll while
+  // scrolling is locked and the jump is silently dropped. So: intercept the
+  // click, close the sheet, then scroll to the target ourselves once the
+  // close animation (300ms) has finished.
+  function handleMobileNavClick(event: MouseEvent<HTMLAnchorElement>, href: string) {
+    event.preventDefault();
+    setNavOpen(false);
+    window.setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
+  }
+ 
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <a href="#top">
-            <img
-              src={sevnLogo}
-              alt="SEVN Operations"
-              className="h-7 w-auto sm:h-8"
-            />
+          <a href="#top" className="shrink-0">
+            <img src={sevnLogo} alt="SEVN Operations" className="h-7 w-auto sm:h-8" />
           </a>
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground sm:flex">
-            <a href="#about" className="transition-colors hover:text-foreground">
-              About
-            </a>
-            <a href="#results" className="transition-colors hover:text-foreground">
-              Results
-            </a>
-            <a href="#reviews" className="transition-colors hover:text-foreground">
-              Reviews
-            </a>
-            <a href="#connect" className="transition-colors hover:text-foreground">
-              Connect
-            </a>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
-          <Sheet>
-            <SheetTrigger asChild className="sm:hidden">
-              <Button variant="ghost" size="icon" aria-label="Open navigation menu">
+ 
+          <Sheet open={navOpen} onOpenChange={setNavOpen}>
+            <SheetTrigger asChild>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                aria-label="Open menu"
+                className="sm:hidden"
+              >
                 <Menu className="size-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-3/4 sm:max-w-sm">
-              <SheetHeader>
-                <SheetTitle className="sr-only">Navigation</SheetTitle>
-              </SheetHeader>
-              <div className="mt-8 flex flex-col items-start gap-6">
-                <img
-                  src={sevnLogo}
-                  alt="SEVN Operations"
-                  className="h-6 w-auto"
-                />
-                <a href="#about" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
-                  About
-                </a>
-                <a href="#results" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
-                  Results
-                </a>
-                <a href="#reviews" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
-                  Reviews
-                </a>
-                <a href="#connect" className="text-lg font-medium text-foreground transition-colors hover:text-secondary">
-                  Connect
-                </a>
-              </div>
+            <SheetContent side="right" className="w-3/4 sm:hidden">
+              <SheetTitle className="sr-only">SEVN Operations</SheetTitle>
+              <img src={sevnLogo} alt="SEVN Operations" className="h-6 w-auto" />
+              <nav className="mt-8 flex flex-col gap-1 text-base">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(event) => handleMobileNavClick(event, link.href)}
+                    className="rounded-md px-2 py-3 text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
             </SheetContent>
           </Sheet>
         </div>
       </header>
-
+ 
       <main id="top">
         {/* Hero */}
         <section>
@@ -128,7 +138,7 @@ function Index() {
             </div>
           </div>
         </section>
-
+ 
         {/* About */}
         <section id="about">
           <div className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-[320px_1fr]">
@@ -152,7 +162,7 @@ function Index() {
                 <Linkedin className="size-4" /> Connect on LinkedIn
               </a>
             </div>
-
+ 
             <div>
               <SectionLabel className="text-primary">About Me</SectionLabel>
               <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">
@@ -181,11 +191,11 @@ function Index() {
                   </li>
                 ))}
               </ul>
-
+ 
             </div>
           </div>
         </section>
-
+ 
         {/* Results */}
         <section id="results">
           <div className="mx-auto max-w-5xl px-6 py-16">
@@ -194,8 +204,8 @@ function Index() {
               Examples of what I can do for you.
             </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
-
-
+ 
+ 
             <Accordion
               type="single"
               collapsible
@@ -229,14 +239,14 @@ function Index() {
             </Accordion>
           </div>
         </section>
-
+ 
         {/* Reviews */}
         <section id="reviews">
           <div className="mx-auto max-w-5xl px-6 py-16">
             <SectionLabel className="text-primary">Reviews</SectionLabel>
             <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">What it's like to work together.</h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
-
+ 
             <Carousel opts={{ align: "start" }} className="mt-10">
               <CarouselContent className="-ml-5">
                 {reviews.map((review, i) => (
@@ -255,13 +265,13 @@ function Index() {
                 ))}
               </CarouselContent>
               <div className="mt-8 flex gap-3">
-                <CarouselPrevious className="static translate-y-0 border-border bg-card" />
-                <CarouselNext className="static translate-y-0 border-border bg-card" />
+                <CarouselPrevious className="static h-11 w-11 translate-y-0 border-border bg-card" />
+                <CarouselNext className="static h-11 w-11 translate-y-0 border-border bg-card" />
               </div>
             </Carousel>
           </div>
         </section>
-
+ 
         {/* Connect */}
         <section id="connect">
           <div className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-[1fr_1.2fr]">
@@ -287,17 +297,14 @@ function Index() {
           </div>
         </section>
       </main>
-
+ 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-8 text-sm text-muted-foreground">
-          <img
-            src={sevnLogo}
-            alt="SEVN Operations"
-            className="h-5 w-auto"
-          />
+          <img src={sevnLogo} alt="SEVN Operations" className="h-5 w-auto" />
           <p>Operations support for teams that need the systems to hold.</p>
         </div>
       </footer>
     </div>
   );
 }
+ 
