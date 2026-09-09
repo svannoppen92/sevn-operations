@@ -278,7 +278,7 @@ function Index() {
             <div>
               <SectionLabel className="text-primary">Let's Connect</SectionLabel>
               <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">
-                & talk through the problems you need solved
+                And talk through the problems you need solved.
               </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
               <p className="mt-6 text-base leading-relaxed text-foreground/80">
