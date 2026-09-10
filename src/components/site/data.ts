@@ -79,32 +79,27 @@ export const processStages: ProcessStage[] = [
   {
     number: "01",
     title: "Discovery",
-    description:
-      "Discussions and research to understand the business, the goals, and what's really in the way.",
+    description: "I learn your business and find what's really in the way.",
   },
   {
     number: "02",
     title: "Analysis",
-    description:
-      "The findings from discovery are reviewed to scope out the opportunity and sharpen the objectives.",
+    description: "I dig into what I found to pinpoint the real opportunity.",
   },
   {
     number: "03",
     title: "Strategy",
-    description:
-      "Options are weighed and the best path forward is recommended: a prioritized plan with clear objectives, owners, and a timeline.",
+    description: "I map a clear plan — what to do, who owns it, and when.",
   },
   {
     number: "04",
     title: "Implementation",
-    description:
-      "The plan goes live alongside your team, with regular check-ins to adjust as real conditions unfold.",
+    description: "I put the plan into motion, with regular check-ins along the way.",
   },
   {
     number: "05",
     title: "Review",
-    description:
-      "Results are measured against the original goal, and you're left with what you need to sustain them.",
+    description: "I measure the results and hand off what you need to keep it going.",
   },
 ];
  
@@ -141,4 +136,3 @@ export const reviews = [
     role: "Chief of Staff",
   },
 ];
- 
