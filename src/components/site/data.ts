@@ -89,7 +89,7 @@ export const processStages: ProcessStage[] = [
   {
     number: "03",
     title: "Strategy",
-    description: "I map a clear plan — what to do, who owns it, and when.",
+    description: "I map a clear plan for you — what to do, who owns it, and when.",
   },
   {
     number: "04",
