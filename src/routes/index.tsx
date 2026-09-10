@@ -391,7 +391,7 @@ function Index() {
                 I'll be in touch within 24 hours. Pricing options are based on the project scope and time requirements.
               </p>
               <a
-                href="mailto:you@yourdomain.com"
+                href="mailto:sevn.operations@gmail.com"
                 className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-secondary transition-opacity hover:opacity-70"
               >
                 <Mail className="size-4" /> you@yourdomain.com
