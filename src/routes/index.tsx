@@ -231,7 +231,7 @@ function Index() {
                     companies, early-stage startups, and nonprofits.
                   </>,
                   <>
-                    Finance, HR, whatever's on fire this week — I find the problems and
+                    Internal Systems, Compliance, Finance, HR, whatever's on fire this week — I find the problems and
                     build the process that keeps it solved.
                   </>,
                 ].map((line, i) => (
