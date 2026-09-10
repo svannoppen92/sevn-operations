@@ -262,7 +262,7 @@ function Index() {
  
             <div
               ref={processTrackRef}
-              className="mt-10 -mx-6 snap-x snap-proximity overflow-x-auto px-6 pb-2"
+              className="mt-10 -mx-6 snap-x snap-proximity overflow-x-auto scroll-pl-6 px-6 pb-2"
             >
               <div className="relative flex w-max gap-8 sm:w-full sm:gap-6">
                 <div
@@ -384,7 +384,7 @@ function Index() {
             <div>
               <SectionLabel className="text-primary">Let's Connect</SectionLabel>
               <h2 className="mt-4 text-3xl text-secondary sm:text-4xl">
-                And talk through the problems you need solved.
+                & talk through the problems you need solved
               </h2>
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
               <p className="mt-6 text-base leading-relaxed text-foreground/80">
