@@ -407,7 +407,7 @@ function Index() {
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-8 text-sm text-muted-foreground">
           <img src={sevnLogo} alt="SEVN Operations" className="h-5 w-auto" />
-          <p>Operations support for teams that need the systems to hold.</p>
+          <p>Operations support for teams that need the systems to stick.</p>
         </div>
       </footer>
     </div>
