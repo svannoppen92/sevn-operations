@@ -1,4 +1,4 @@
-import { useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Linkedin, Mail, Menu } from "lucide-react";
  
@@ -42,7 +42,7 @@ function SectionLabel({ children, className }: { children: string; className?: s
  
 function Index() {
   const [navOpen, setNavOpen] = useState(false);
- 
+
   // The mobile nav lives in a Sheet, which locks page scroll while it's open
   // and while it plays its close animation. If we let the anchor's native
   // hash-jump fire in that instant, the browser tries to scroll while
@@ -56,7 +56,56 @@ function Index() {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 300);
   }
- 
+
+  // On mobile, the process stages scroll horizontally in their own track.
+  // As the person swipes through, highlight whichever stage card is
+  // centered in view. On desktop the track isn't scrollable (all five fit
+  // at once), so it just stays pinned on the first stage like before.
+  const processTrackRef = useRef<HTMLDivElement>(null);
+  const processStageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeProcessStage, setActiveProcessStage] = useState(0);
+
+  useEffect(() => {
+    const track = processTrackRef.current;
+    if (!track) return;
+
+    function updateActiveStage() {
+      const container = processTrackRef.current;
+      if (!container) return;
+
+      const isScrollable = container.scrollWidth > container.clientWidth + 4;
+      if (!isScrollable) {
+        setActiveProcessStage(0);
+        return;
+      }
+
+      const containerRect = container.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      processStageRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const elCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(elCenter - containerCenter);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = i;
+        }
+      });
+      setActiveProcessStage(closestIndex);
+    }
+
+    updateActiveStage();
+    track.addEventListener("scroll", updateActiveStage, { passive: true });
+    window.addEventListener("resize", updateActiveStage);
+    return () => {
+      track.removeEventListener("scroll", updateActiveStage);
+      window.removeEventListener("resize", updateActiveStage);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border">
@@ -207,10 +256,14 @@ function Index() {
             <div className="mt-5 h-1 w-16 rounded-full bg-red" aria-hidden />
             <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
               Every engagement moves through the same five stages — from the first conversation to
-              a system your team can run without me.
+              a system your team can run without me. Timing varies based on the scope of the
+              project.
             </p>
  
-            <div className="mt-10 -mx-6 overflow-x-auto px-6 pb-2">
+            <div
+              ref={processTrackRef}
+              className="mt-10 -mx-6 snap-x snap-proximity overflow-x-auto px-6 pb-2"
+            >
               <div className="relative flex w-max gap-8 sm:w-full sm:gap-6">
                 <div
                   className="pointer-events-none absolute right-0 left-0 top-[19px] h-px bg-border"
@@ -219,12 +272,15 @@ function Index() {
                 {processStages.map((stage, i) => (
                   <div
                     key={stage.number}
-                    className="relative flex w-[200px] shrink-0 flex-col sm:w-auto sm:flex-1"
+                    ref={(el) => {
+                      processStageRefs.current[i] = el;
+                    }}
+                    className="relative flex w-[200px] shrink-0 snap-start flex-col sm:w-auto sm:flex-1"
                   >
                     <div
                       className={cn(
-                        "relative z-10 mb-5 flex size-[38px] items-center justify-center rounded-md border font-display text-sm font-semibold",
-                        i === 0
+                        "relative z-10 mb-5 flex size-[38px] items-center justify-center rounded-md border font-display text-sm font-semibold transition-colors duration-300",
+                        i === activeProcessStage
                           ? "border-primary bg-primary text-primary-foreground"
                           : "border-border bg-card text-muted-foreground",
                       )}
@@ -357,5 +413,3 @@ function Index() {
     </div>
   );
 }
- 
- 
