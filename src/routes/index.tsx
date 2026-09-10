@@ -394,7 +394,7 @@ function Index() {
                 href="mailto:sevn.operations@gmail.com"
                 className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-secondary transition-opacity hover:opacity-70"
               >
-                <Mail className="size-4" /> you@yourdomain.com
+                <Mail className="size-4" /> sevn.operations@gmail.com
               </a>
             </div>
             <div className="rounded-xl bg-card p-7 shadow-[var(--shadow-card)] sm:p-9">
