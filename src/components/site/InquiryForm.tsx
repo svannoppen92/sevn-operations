@@ -12,20 +12,46 @@ const fields = [
   { id: "phone", label: "Phone number", type: "tel", autoComplete: "tel" },
 ] as const;
 
+const WEB3FORMS_ACCESS_KEY = "62e99898-8dbc-4e96-b3f2-939423aa87db";
+
 export function InquiryForm() {
   const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitting(true);
     const form = event.currentTarget;
-    window.setTimeout(() => {
-      setSubmitting(false);
-      form.reset();
-      toast.success("Inquiry sent", {
-        description: "Thanks for reaching out — you'll get a reply within two business days.",
+
+    const formData = new FormData(form);
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", "New inquiry from sevn operations website");
+    formData.append("from_name", "sevn operations website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
       });
-    }, 500);
+      const result = await response.json();
+
+      if (result.success) {
+        form.reset();
+        toast.success("Inquiry sent", {
+          description: "Thanks for reaching out — you'll get a reply within two business days.",
+        });
+      } else {
+        toast.error("Something went wrong", {
+          description: "Please try again, or email sevn.operations@gmail.com directly.",
+        });
+      }
+    } catch {
+      toast.error("Something went wrong", {
+        description: "Please try again, or email sevn.operations@gmail.com directly.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
