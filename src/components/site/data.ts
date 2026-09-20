@@ -131,7 +131,7 @@ export const reviews = [
   },
   {
     quote:
-      "I think of sevn operations every time I have a customer place an order and use my invoicing system. I can't imagine if I was using the original system I planned to use, before my work with Sophie. She was reliable and provided so many insightful initiatives and systems that I was too bogged down to think of. Sophie is supportive but constructive, and her insight and experience was invaluable in starting my business. I appreciate that throughout my work with sevn operations I constantly felt in control and respected for my vision, but that I had a partner in execution. I cannot recommend her consultation services enough!",
+      "I think of sevn operations every time I have a customer place an order using my invoicing system. I can't imagine if I was using the original system I planned to use, before my work with Sophie. She was reliable and provided so many insightful initiatives and systems that I was too bogged down to think of. Sophie is supportive but constructive, and her insight and experience was invaluable in starting my business. I appreciate that throughout my work with sevn operations I constantly felt in control and respected for my vision, but that I had a partner in execution. I cannot recommend her consultation services enough!",
     name: "Jamie Perkovich",
     role: "Owner, Let Me, Meal Prep LLC",
   },
