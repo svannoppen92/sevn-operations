@@ -125,9 +125,9 @@ export const reviews = [
   },
   {
     quote:
-      "Our OKR completion rate went from a joke to something we plan around. That change stuck long after the engagement ended.",
-    name: "Placeholder Review",
-    role: "VP Operations",
+      "We were thrilled to work with Sophie on a development project for United Recovery Fund. Sophie took initiative, understood the details and broadscope of our work, and was diligent in meeting deadlines. Sophie was a pleasure to work with and has strong interpersonal and communications skills. We hope to find a way that she can work with us in the future!",
+    name: "Margo Walsh",
+    role: "Founder, MaineWorks, Co-Founder, United Recovery Fund",
   },
   {
     quote:
