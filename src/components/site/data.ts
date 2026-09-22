@@ -113,7 +113,7 @@ export const toolCategories = [
 export const reviews = [
   {
     quote:
-      "Sophie was an incredible partner in building ParentData. She helped get the business off the ground, quadrupling it in size during her time here. She started at a time where nothing was written down and our processes were disjointed, and left us with systems the whole team actually uses. She has incredible operational strength and flexibility; everything from HR, legal compliance, finance and business operations. She gave me structured financial visibility for the first time, and helped cut our operational costs by 10%. We would never be where we are today without Sophie's work.",
+      "Sophie was an incredible partner in building ParentData. She helped get the business off the ground, quadrupling it in size during her time here. She started at a time where nothing was written down and our processes were disjointed, and left us with systems the whole team actually uses. She has incredible operational strength and flexibility; everything from HR, legal compliance, finance and business operations. She gave me structured financial visibility for the first time, and helped cut our operational costs by 10% and increase revenue by 30%. We would never be where we are today without Sophie's work.",
     name: "Emily Oster",
     role: "Founder and CEO, ParentData",
   },
