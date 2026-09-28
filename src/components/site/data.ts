@@ -119,12 +119,6 @@ export const reviews = [
   },
   {
     quote:
-      "The compliance cleanup alone paid for itself twice over. Calm, fast, and completely unbothered by the mess.",
-    name: "Placeholder Review",
-    role: "Executive Director, Nonprofit",
-  },
-  {
-    quote:
       "We were thrilled to work with Sophie on a development project for United Recovery Fund. Sophie took initiative, understood the details and broadscope of our work, and was diligent in meeting deadlines. Sophie was a pleasure to work with and has strong interpersonal and communications skills. We hope to find a way that she can work with us in the future!",
     name: "Margo Walsh",
     role: "Founder, MaineWorks, Co-Founder, United Recovery Fund",
@@ -134,5 +128,11 @@ export const reviews = [
       "I think of sevn operations every time I have a customer place an order using my invoicing system. I can't imagine if I was using the original system I planned to use, before my work with Sophie. She was reliable and provided so many insightful initiatives and systems that I was too bogged down to think of. Sophie is supportive but constructive, and her insight and experience was invaluable in starting my business. I appreciate that throughout my work with sevn operations I constantly felt in control and respected for my vision, but that I had a partner in execution. I cannot recommend her consultation services enough!",
     name: "Jamie Perkovich",
     role: "Owner, Let Me, Meal Prep LLC",
+  },
+  {
+    quote:
+      "review coming soon",
+    name: "Placeholder",
+    role: "Placeholder",
   },
 ];
