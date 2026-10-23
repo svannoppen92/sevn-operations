@@ -45,7 +45,7 @@ export const resultGroups: ResultGroup[] = [
     id: "org",
     title: "Organizational Design & Talent Systems",
     items: [
-      "Scaled the organization from 2 to 13 full-time employees, building end-to-end recruiting infrastructure that delivered a 92% offer acceptance rate (11 of 12 offers accepted).",
+      "Scaled the organization from 2 to 50 full-time employees and contractors, building end-to-end recruiting infrastructure that delivered a 92% offer acceptance rate (11 of 12 offers accepted).",
       "Created and institutionalized onboarding, performance review, and leveling frameworks — achieving 100% retention across 13 hires over 2 years and 90%+ employee engagement scores.",
       "Transitioned the company to a PEO and selected its 401(k) vendor, formalizing its benefits architecture, saving $1,500/month for the employer and $200+/employee/month, and removing compliance risk.",
     ],
